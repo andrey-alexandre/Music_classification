@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="contact-area section-padding-0-80">
+   <div class="container">
+       <div class="row">
+           <div class="col-12">
+               <div class="section-heading">
+                   <h3>Crie sua música:</h3>
+               </div>
+           </div>
+       </div>
+
+       <div class="row">
+           <div class="col-12">
+           <p>Todos os campos são obrigatórios</p>
+               <div class="contact-form-area">
+                   <form action="{% url 'cria_letras' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       <div class="row">
+                           <div class="col-12 col-lg-12">
+                               <label for="nome_letra"><b>Título da música</b></label>
+                               <input type="text" id="nome_letra" class="form-control" name="nome_letra" placeholder="Ex. Chão de giz" required>
+                           </div>
+                           <div class="col-12">
+                               <label for="file"><b>Letra</b></label>
+                               <textarea class="form-control" name="ds_letra" cols="40" rows="10" placeholder="Ex. &#10 Eu desço dessa solidão &#10 Espalho coisas sobre um chão de giz  &#10 Há meros devaneios tolos a me torturar &#10 Fotografias recortadas  &#10 Em jornais de folhas amiúde" required></textarea>
+                           </div>
+                           <div class="col-12">
+                               <label for="file"><b>Gênero musical</b></label>
+                               <textarea class="form-control" name="ds_genero" cols="30" rows="10" placeholder="Ex. MPB" required></textarea>
+                           </div>
+                           <div class="col-12 text-center">
+                               <button class="btn delicious-btn mt-30" type="submit">Criar sua letra</button>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+{% endblock %}
